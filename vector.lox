@@ -1,0 +1,27 @@
+print "Hello";
+
+fun vec(x, y) {
+	fun v(o, v) {
+		if (o == "x") return x;
+		else if (o == "y") return y;
+		else if (o == "sx") x = v;
+		else if (o == "sy") y = v;
+	}
+	return v;
+}
+
+var a = vec(5, 2);
+var b = vec(3, 1);
+
+a("sx", 4);
+
+fun add(a, b) {
+	var x = a("x", 0) + b("x", 0);
+	var y = a("y", 0) + b("y", 0);
+	return vec(x, y);
+}
+
+var c = add(a, b);
+print c("x", 0);
+print c("y", 0);
+
